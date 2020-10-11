@@ -85,9 +85,9 @@ export default function NewChallengeForm() {
     if(newBadInput.length > 0)
     {
       setBadInput(newBadInput);
-      setTimeout(() => {
-        return setBadInput([]);
-      }, 8000);
+      // setTimeout(() => {
+      //   return setBadInput([]);
+      // }, 8000);
     } else {
       const newRepo = {
         name: repoName,
