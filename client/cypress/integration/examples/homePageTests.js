@@ -1,4 +1,4 @@
-const expectedDescription = "dcnlkdncdkncdkacndkcndkjcndakcndkwcndkncdkncdkncdk..."
+const expectedDescription = "https://github.com/suvelocity/Authentication-Challenge-TEMPLATE"
 
 describe("Home page Tests", () => {
     before(()=>{
@@ -34,8 +34,8 @@ describe("Home page Tests", () => {
       cy.route("**/api/v1/challenges?labels=", "fixture:labelsToChallenges.json");
       cy.route("**/api/v1/image?id=7", "fixture:image7.json");
       cy.visit("http://localhost:3000");
-      cy.get(':nth-child(6) > .challenge-card-creator-homepage > .avatar-and-repo-name > .MuiAvatar-root').invoke('text').should("eq","Sh")
-      cy.get(':nth-child(6) > .challenge-card-description-homepage').invoke('text').should("eq",expectedDescription)
+      cy.get(':nth-child(1) > .challenge-card-creator-homepage > .avatar-and-repo-name > .MuiAvatar-root').invoke('text').should("eq","su")
+      cy.get(':nth-child(1) > .challenge-card-description-homepage').invoke('text').should("eq",expectedDescription)
     });
 
     it("Can filter by labels", () => {
