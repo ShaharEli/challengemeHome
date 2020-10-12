@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import network from "../../services/network"
 import "./ChallengeCard.css"
 import Avatar from "@material-ui/core/Avatar"
@@ -85,6 +86,7 @@ export default function ChallengeCard({
   const avatarStyle = { backgroundColor : darkMode ? "#F5AF5D" : "#C9AC80", margin : 8 }
 
   return (
+    <Link to={`/challenges/${challengeId}`} style={{textDecoration:'none'}}>
     <div className = "challenge-card" //animation to the challenge card
     >
       <div className="challenge-card-creator-homepage">
@@ -122,5 +124,6 @@ export default function ChallengeCard({
         description.length<100? description : description.slice(0,100).split(" ").slice(0,-1).join(" ")+"..."}
         </div>
     </div>
+    </Link>
   );
 }
