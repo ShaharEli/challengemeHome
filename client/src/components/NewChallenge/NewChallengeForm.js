@@ -42,7 +42,7 @@ export default function NewChallengeForm() {
 
   /* pull challenge's type options from .github/workflows folder */
   const openOptions = async () => {
-  const { data: types } = await network.get('/api/v1/challenges/type');
+  const { data: types } = await network.get('/api/v1/types');
   setOptionsArray(types.map((type, index) => 
     <MenuItem key={index} value={type}>{type}</MenuItem>
     ))
@@ -112,7 +112,7 @@ export default function NewChallengeForm() {
           icon: 'success',
           title: 'Your challenge was added successfuly!',
           showConfirmButton: false,
-          timer: 3000
+          // timer: 3000
         });        
         history.push('/');
       }
@@ -122,14 +122,14 @@ export default function NewChallengeForm() {
             icon: 'error',
             title: error.response.data,
             showConfirmButton: false,
-            timer: 3000
+            // timer: 3000
           });
         } else {
           Swal.fire({
             icon: 'error',
             title: 'An error has occurred. Please try again later',
             showConfirmButton: false,
-            timer: 3000
+            // timer: 3000
           });
         }
       }
@@ -207,7 +207,7 @@ export default function NewChallengeForm() {
         <InputLabel id='Challenge type'  style={textFieldStyle}>Challenge type</InputLabel>
         <Select
           labelId='Challenge type'
-          id='Challenge type'
+          id='types'
           className='newChallengeFormFeild'
           value={repoType}
           onChange={event => setRepoType(event.target.value)}

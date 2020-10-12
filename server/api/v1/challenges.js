@@ -140,20 +140,7 @@ router.post(`/`,async(req,res) => {
   }
 })
 
-// router Get - github/workflows
-router.get('/type', async (req,res) => {
-  try{
-    const files = fs.readdirSync('../.github/workflows');
-    let types = files.map(file =>
-      !file.includes("deploy")?
-      file.slice(0,-4)
-      :
-      null
-    )
-    types = types.filter(type => type!==null)
-    res.send(types)
-  }catch(e){res.send(e.message)}
-})
+
 
 router.get('/labels', async (req, res) => {
   const allLabels = await Label.findAll();
