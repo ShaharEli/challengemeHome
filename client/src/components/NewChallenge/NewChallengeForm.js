@@ -9,7 +9,10 @@ import "./NewChallengeForm.css";
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, InputLabel, MenuItem, FormControl, Select, TextField, TextareaAutosize, Button } from '@material-ui/core';
 import { Alert, AlertTitle } from '@material-ui/lab';
+const Filter = require('bad-words'),
+      filter = new Filter();
 const textFieldStyle = { minWidth : "200px" }
+
 
 /* function to generate alerts for bad or missing inputs */
 const generateAlert=(title,message)=>(
@@ -107,7 +110,7 @@ export default function NewChallengeForm() {
     } else {
       const newRepo = {
         name: repoName,
-        description: repoDescription,
+        description: filter.clean(repoDescription),
         type: repoType,
         repositoryName: repoLink,
         boilerPlate: repoBoiler,
