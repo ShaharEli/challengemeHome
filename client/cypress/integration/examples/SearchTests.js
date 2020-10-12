@@ -1,6 +1,3 @@
-
-
-
 describe("Search Tests", () => {
     before(()=>{
         cy.login()
@@ -15,8 +12,8 @@ describe("Search Tests", () => {
         cy.get('#searchResults').should('have.class','closed');
         cy.get('#searchBar').click();
         cy.get('#searchResults').should('have.class','open');
-        cy.get('#searchResults > .filterMenu > .toggleOpen').click();
-        cy.get('.open > :nth-child(2) > .labelFilter > .selectLabels > .css-yk16xz-control > .css-1hb7zxy-IndicatorsContainer > .css-tlfecz-indicatorContainer > .css-6q0nyr-Svg > path').click();
+        cy.get('#seperator > .filterMenu > .toggleOpen').click();
+        cy.get('.open > :nth-child(2) > .labelFilter > .selectLabels > .css-yk16xz-control > .css-g1d714-ValueContainer').click();
         cy.get('#react-select-2-option-0').click();
         cy.get('.open > :nth-child(2) > .buttons > .filterSubmit').click();
         cy.get('#searchBar')

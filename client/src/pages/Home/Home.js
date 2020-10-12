@@ -63,17 +63,19 @@ export default function HomePage() {
       <FilterMenu 
       formerSelection={filters} 
       updateFilters={setFilters} />
+      <div className={"challenges-container"}>
       {challenges.map((challenge) => (
         <ChallengeCard
-          key={challenge.id}
-          challengeId={challenge.id}
-          createdAt={challenge.createdAt}
-          name={challenge.name}
-          description={challenge.description}
-          repositoryName = {challenge.repositoryName}
-          labels = {challenge.Labels}
+        key={challenge.id}
+        challengeId={challenge.id}
+        createdAt={challenge.createdAt}
+        name={challenge.name}
+        description={challenge.description}
+        repositoryName = {challenge.repositoryName}
+        labels = {challenge.Labels}
         />
-      ))}
+        ))}
+        </div>
       </div>
      
     </div>

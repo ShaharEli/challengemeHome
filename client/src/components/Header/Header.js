@@ -77,7 +77,7 @@ function Header() {
     setAnchorEl(null);
   };
 
-  const headerStyle = {height:"12vh",maxHeight:"80px",minHeight:"40px",position:"sticky",top:0, backgroundColor:! darkMode && "#C9AC80"}
+  const headerStyle = {height:"60px",position:"fixed", top:0, justifyContent:'center', backgroundColor:! darkMode && "#C9AC80"}
 
   return (
     <div className={classes.root} >

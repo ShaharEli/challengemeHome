@@ -1,16 +1,19 @@
 .dark  .challenge-card{
     color: white;
     background: #4B79A1;  /* fallback for old browsers */
+    box-shadow: 0px 2px 7px 2px black;
 }
 .challenge-card{
     width:300px;
     height: 200px;
     margin: 10px;
+    padding: 10px;
     position: relative;
     overflow: hidden;
     color: black;
     background-color:#D8DFE2;
     background: radial-gradient(circle, rgba(230,230,230,1) 0%, rgb(209, 202, 202) 100%);
+    box-shadow: 0px 2px 7px 2px #a79d9d;
 }
 
 .dark .challenge-card-description-homepage{
@@ -19,7 +22,7 @@
 }
 .challenge-card-description-homepage{
     color: black;
-    width:300px;
+    width:100%;
     overflow-wrap: break-word;
     position: absolute;
     bottom: 0;
@@ -61,10 +64,15 @@
 
 }
 .challenge-card-creator-homepage{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    /* padding-bottom: 2px; */
+    align-items: center;            
+    /* justify-content: space-between; */
+}
+.labels-container{
     display: flex;
-    padding-bottom: 2px;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .challenge-card-date-homepage{
