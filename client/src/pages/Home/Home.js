@@ -5,6 +5,7 @@ import "./Home-old.css"
 import ThemeApi from "../../services/Theme"
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
 import { useLocation } from "react-router-dom"
+import { set } from 'js-cookie';
 
 //function to get query params
 function useQuery() {    
@@ -12,7 +13,7 @@ function useQuery() {
 }
 
 export default function HomePage() {
-  const [challenges, setChallenges] = useState([]);
+  const [challenges, setChallenges] = useState(null);
   const [filtered, setFiltered] = useState(false);
   const [filters, setFilters] = useState({labels:[]});
   const darkMode = React.useContext(ThemeApi).darkTheme
@@ -52,7 +53,9 @@ export default function HomePage() {
           typeof challengesFromServer === "object" &&
           setChallenges(challengesFromServer)
         }
-      }catch(e){}
+      }catch(e){
+        setChallenges(null)
+      }
     })();  
   }, [filters]);  
 
@@ -63,7 +66,10 @@ export default function HomePage() {
       <FilterMenu 
       formerSelection={filters} 
       updateFilters={setFilters} />
-      {challenges.map((challenge) => (
+      
+      {
+      challenges &&
+      challenges.map((challenge) => (
         <ChallengeCard
           key={challenge.id}
           challengeId={challenge.id}
